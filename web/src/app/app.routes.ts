@@ -3,12 +3,14 @@ import { Login } from './pages/login/login';
 import { Layout } from './pages/layout/layout';
 import { Products } from './pages/products/products';
 import { NewProduct } from './pages/new-product/new-product';
-import { authGuard } from './guards/app-auth';
+import { authGuard } from './guards/auth-guard';
+import { loginAuthGuard } from './guards/login-auth-guard';
 
 export const routes: Routes = [
     {
         path: "login",
-        component: Login
+        component: Login,
+        canActivate: [loginAuthGuard]
     },
     {
         path: "",
